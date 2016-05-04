@@ -1,26 +1,29 @@
 {
-  "name": "enyalios",
-  "version": "0.0.1",
-  "description": "Template for an Enyo-based electron app",
-  "main": "index.js",
-  "electron-main": "launch.js",
-  "assets": [
-    "assets/**/*.*",
-    "launch.js",
-    "LICENSE"
-  ],
-  "styles": [],
-  "devAssets": [],
-  "moduleDir": "src",
-  "author": "Jason Robitaille",
-  "repository": "https://github.com/JayCanuck/enyalios",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-jshint": "^2.0.0",
-    "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0",
-    "electron-packager": "^6.0.1",
-    "electron-prebuilt": "^0.37.5"
-  }
+	"name": "enyalios",
+	"version": "0.0.1",
+	"description": "Template for an Enyo-based electron app",
+	"main": "index.js",
+	"electron-main": "launch.js",
+	"assets": [
+		"assets/**/*.*",
+		"launch.js",
+		"LICENSE"
+	],
+	"styles": [
+		"css/*.less",
+		"css/*.css"
+	],
+	"devAssets": [],
+	"moduleDir": "src",
+	"author": "Jason Robitaille",
+	"repository": "https://github.com/JayCanuck/enyalios",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"gulp": "^3.9.1",
+		"gulp-jshint": "^2.0.0",
+		"jshint": "^2.9.1",
+		"jshint-stylish": "^2.1.0",
+		"electron-packager": "^6.0.1",
+		"electron-prebuilt": "^0.37.5"
+	}
 }

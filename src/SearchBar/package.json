@@ -1,0 +1,6 @@
+{
+	"main": "SearchBar.js",
+	"styles": [
+		"SearchBar.css"
+	]
+}

@@ -1,0 +1,30 @@
+.statusbar {
+	background: black;
+	height: 1.75rem;
+	display: flex;
+	color:white;
+}
+.statusbar > * {
+	line-height:1.75rem;
+	margin: 0 0.5rem 0 0.5rem;
+}
+
+.statusbar .appmenu {
+	display:none;
+}
+
+.statusbar .spacer {
+	-webkit-app-region: drag;
+}
+
+.statusbar .notifications {
+	display:none;
+}
+
+.statusbar .icons {
+	display:none;
+}
+
+.statusbar .os {
+	font-style:italic;
+}

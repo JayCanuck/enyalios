@@ -14,9 +14,9 @@ function createWindow() {
 	// Create the browser window.
 	var showFrame = (process.argv.indexOf('--dev-mode')>-1);
 	mainWindow = new BrowserWindow({
-		width: 800,
-		height: 600,
-		frame: true,
+		width: 450,
+		height: 700,
+		frame: showFrame,
 		icon: __dirname + '/assets/icon-small.png'
 	});
 

@@ -1,0 +1,6 @@
+{
+	"main": "StatusBar.js",
+	"styles": [
+		"StatusBar.css"
+	]
+}
