@@ -3,7 +3,6 @@ notifications:
   email: false
 node_js:
   - "stable"
-install:
 before_script:
-  - npm install -g jshint
-script: jshint
+  - npm install -g gulp
+script: gulp jshint
