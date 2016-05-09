@@ -9,6 +9,13 @@ var
 	stylish = require('jshint-stylish'),
 	epackager = require('electron-packager');
 
+var pkg = {};
+try {
+	pkg = JSON.parse(fs.readFileSync('./package.json', {encoding:'utf8'}));
+} catch(e) {
+	console.error('Unable to find package.json');
+}
+
 /**
  * Gulp Tasks:
  *
@@ -61,7 +68,22 @@ function enyo(cb) {
 	opts = opts.map(function (v) { return v.match(/^[^\s-]+?\s+[^\s]/g) ? ('"' + v + '"') : v; })
 			.map(function (v) { return v.replace(/=((?=[^\s'"]+\s)[^'"]*$)/g, '="$1"'); });
 	console.log('Building Enyo app at ' + process.cwd() + '...');
-	exec('enyo pack ' + opts.join(' '), {}, cb);
+	exec('enyo pack ' + opts.join(' '), {}, function(err) {
+		if(!err) {
+			//generate build version data
+			var d = new Date();
+			var z = function(i) { return (i<10 ? '0' : '') + i;};
+			var versionData = {
+				os: 'EnyaliOS',
+				version: pkg.version,
+				build: pkg['build-cycle'],
+				buildtime: '' + d.getFullYear() + z(d.getMonth()+1) + z(d.getDate()) + z(d.getHours()) + z(d.getMinutes())+ z(d.getSeconds()),
+				electron: pkg.dependencies['electron-prebuilt']
+			};
+			fs.writeFileSync('./dist/system/version.json', JSON.stringify(versionData, null, '\t'), {encoding:'utf8'});
+		}
+		cb(err);
+	});
 }
 
 // Gulp Task: 'electron'
@@ -76,7 +98,6 @@ function electronAll(cb) {
 
 // Gulp Task: 'run'
 function run(cb) {
-	var pkg = JSON.parse(fs.readFileSync('./package.json', {encoding:'utf8'}));
 	var flags = '';
 	var cfg = {};
 	if(exists('./enyoconfig')) {
@@ -93,14 +114,13 @@ function run(cb) {
 // Gulp Task: 'jshint'
 function lint() {
 	return gulp
-		.src(['./**/*.js'])
+		.src(['launcj.js', 'index.js', './src/**/*.js'])
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish, {verbose: true}))
 		.pipe(jshint.reporter('fail'));
 }
 
 function electronBuild(platform, action, callback) {
-	var pkg = JSON.parse(fs.readFileSync('./package.json', {encoding:'utf8'}));
 	pkg['main'] = pkg['electron-main'] || 'launch.js';
 	fs.writeFileSync('./dist/package.json', JSON.stringify(pkg, null, '\t'), {encoding:'utf8'});
 	console.log('Packaging with electron to ' + path.join(process.cwd(), 'bin') + '...');

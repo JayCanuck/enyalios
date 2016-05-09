@@ -1,19 +1,16 @@
 {
 	"name": "enyalios",
 	"version": "0.0.1",
-	"description": "Template for an Enyo-based electron app",
+	"build-cycle": "albatross",
+	"description": "",
 	"main": "index.js",
 	"electron-main": "launch.js",
 	"assets": [
 		"assets/**/*.*",
+		"system/*.json",
 		"launch.js",
 		"LICENSE"
 	],
-	"styles": [
-		"css/*.less",
-		"css/*.css"
-	],
-	"devAssets": [],
 	"moduleDir": "src",
 	"author": "Jason Robitaille",
 	"repository": "https://github.com/JayCanuck/enyalios",
@@ -24,6 +21,6 @@
 		"jshint": "^2.9.1",
 		"jshint-stylish": "^2.1.0",
 		"electron-packager": "^6.0.1",
-		"electron-prebuilt": "^0.37.5"
+		"electron-prebuilt": "0.37.5"
 	}
 }
