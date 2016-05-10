@@ -7,15 +7,20 @@
 	"electron-main": "launch.js",
 	"assets": [
 		"assets/**/*.*",
-		"system/*.json",
 		"launch.js",
-		"LICENSE"
+		"LICENSE",
+		"system/*.*",
+		"system/user/media/**/*.*",
+		"node_modules/fs-extra/**/*.*"
 	],
 	"moduleDir": "src",
 	"author": "Jason Robitaille",
 	"repository": "https://github.com/JayCanuck/enyalios",
 	"license": "Apache-2.0",
 	"dependencies": {
+		"fs-extra": "^0.30.0"
+	},
+	"devDependencies": {
 		"gulp": "^3.9.1",
 		"gulp-jshint": "^2.0.0",
 		"jshint": "^2.9.1",
