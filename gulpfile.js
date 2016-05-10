@@ -98,13 +98,13 @@ function electronAll(cb) {
 
 // Gulp Task: 'run'
 function run(cb) {
-	var flags = '';
+	var flags = ' --disable-http-cache';
 	var cfg = {};
 	if(exists('./enyoconfig')) {
 		cfg = JSON.stringify(fs.readFileSync('./enyoconfig', {encoding:'utf8'}));
 	}
 	if(!(process.argv.indexOf('-P')>-1 || process.argv.indexOf('--production')>-1 || cfg.production)) {
-		flags = ' --dev-mode';
+		flags += ' --dev-mode';
 	}
 	var env = process.env;
 	env['ELECTRON_FORCE_WINDOW_MENU_BAR'] = true;
@@ -114,7 +114,7 @@ function run(cb) {
 // Gulp Task: 'jshint'
 function lint() {
 	return gulp
-		.src(['launcj.js', 'index.js', './src/**/*.js'])
+		.src(['launch.js', 'index.js', './src/**/*.js'])
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish, {verbose: true}))
 		.pipe(jshint.reporter('fail'));
