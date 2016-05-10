@@ -4,10 +4,7 @@ var
 	Control = require('enyo/Control'),
 	StatusBar = require('./ui/StatusBar'),
 	SearchBar = require('./ui/SearchBar'),
-	GestureBar = require('./ui/GestureBar'),
-	electron = window.require('electron');
-
-process.chdir(electron.remote.app.getAppPath());
+	GestureBar = require('./ui/GestureBar');
 
 module.exports = Control.kind({
 	name: 'EnyaliOS',

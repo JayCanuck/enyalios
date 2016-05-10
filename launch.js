@@ -10,7 +10,7 @@ var BrowserWindow = electron.BrowserWindow;
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow;
 
-process.chdir(app.getAppPath());
+process.chdir(__dirname);
 
 function createWindow() {
 	// Create the browser window.
@@ -19,7 +19,7 @@ function createWindow() {
 		width: 450,
 		height: 700,
 		frame: showFrame,
-		icon: __dirname + '/assets/icon-small.png'
+		icon: __dirname + (process.platform==='win32' ? '/assets/icon-small.png' : '/assets/icon.png')
 	});
 
 	// and load the index.html of the app.
