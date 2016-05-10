@@ -10,6 +10,8 @@ var BrowserWindow = electron.BrowserWindow;
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow;
 
+process.chdir(__dirname);
+
 function createWindow() {
 	// Create the browser window.
 	var showFrame = (process.argv.indexOf('--dev-mode')>-1);
