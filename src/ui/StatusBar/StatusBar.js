@@ -26,11 +26,10 @@ module.exports = Control.kind({
 			return (n<10?'0':'') + n;
 		};
 		var d = new Date();
-		var h = d.getHours();
-		return (h%12) + ':' + pad(d.getMinutes()) + ' ' + (h<12?'AM':'PM');
+		var h = d.getHours()-12;
+		return ((h>12) ? h-12 : h) + ':' + pad(d.getMinutes()) + ' ' + (h<12?'AM':'PM');
 	},
 	closeWindow: function(inSender, inEvent) {
-		this.log('TEST');
 		window.close();
 	}
 });
