@@ -6,8 +6,6 @@ var
 	SearchBar = require('./ui/SearchBar'),
 	GestureBar = require('./ui/GestureBar');
 
-var USER_MEDIA = '@../system/user/media/';
-
 module.exports = Control.kind({
 	name: 'EnyaliOS',
 	fit:true,
