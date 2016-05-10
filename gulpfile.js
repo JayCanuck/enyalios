@@ -20,21 +20,21 @@ try {
  * Gulp Tasks:
  *
  * 'init' - Fetches the enyo libraries via enyo-dev
- * 'enyo' - Builds the app with enyo-dev
- * 'electron' - Packages built app with electron for the current platform 
- * 'electron-all' - Packages built app with electron for all available platforms
- * 'run' - Runs the built app directly with electron without packaging
- * 'build' - Combination of the 'enyo' task then the 'electron' task
- * 'build-all' - Combination of the 'enyo' task then the 'electron-all' task
+ * 'stage' - Bundles the app with enyo-dev and stages components
+ * 'package' - Packages the staged app with electron for the current platform 
+ * 'package-all' - Packages the staged app with electron for all available platforms
+ * 'run' - Runs the staged app directly with electron without packaging
+ * 'build' - Combination of the 'stage' task then the 'package' task
+ * 'build-all' - Combination of the 'stage' task then the 'package-all' task
  *
  * The default task is 'build'
  */
 
 gulp.task('default', ['build']);
 gulp.task('init', init);
-gulp.task('enyo', enyo);
-gulp.task('electron', electron);
-gulp.task('electron-all', electronAll);
+gulp.task('stage', stage);
+gulp.task('package', electron);
+gulp.task('package-all', electronAll);
 gulp.task('build', build);
 gulp.task('build-all', buildAll);
 gulp.task('run', run);
@@ -47,20 +47,20 @@ function init(cb) {
 
 // Gulp Task: 'build'
 function build(cb) {
-	enyo(function() {
+	stage(function() {
 		electron(cb);
 	});
 }
 
 // Gulp Task: 'build-all'
 function buildAll(cb) {
-	enyo(function() {
+	stage(function() {
 		electronAll(cb);
 	});
 }
 
-// Gulp Task: 'enyo'
-function enyo(cb) {
+// Gulp Task: 'stage'
+function stage(cb) {
 	var opts = process.argv.slice(2);
 	if((opts.length > 0) && (opts[0].indexOf('-')!==0)) {
 		opts = opts.slice(1);
@@ -70,6 +70,9 @@ function enyo(cb) {
 	console.log('Building Enyo app at ' + process.cwd() + '...');
 	exec('enyo pack ' + opts.join(' '), {}, function(err) {
 		if(!err) {
+			//write new package.json
+			pkg['main'] = pkg['electron-main'] || 'launch.js';
+			fs.writeFileSync('./dist/package.json', JSON.stringify(pkg, null, '\t'), {encoding:'utf8'});
 			//generate build version data
 			var d = new Date();
 			var z = function(i) { return (i<10 ? '0' : '') + i;};
@@ -78,11 +81,15 @@ function enyo(cb) {
 				version: pkg.version,
 				build: pkg['build-cycle'],
 				buildtime: '' + d.getFullYear() + z(d.getMonth()+1) + z(d.getDate()) + z(d.getHours()) + z(d.getMinutes())+ z(d.getSeconds()),
-				electron: pkg.dependencies['electron-prebuilt']
+				enyo: require('./lib/enyo').version,
+				electron: pkg.devDependencies['electron-prebuilt']
 			};
 			fs.writeFileSync('./dist/system/version.json', JSON.stringify(versionData, null, '\t'), {encoding:'utf8'});
+			console.log('Processing nodejs dependencies...');
+			exec('npm install --production --loglevel=error', {cwd:'./dist'}, cb);
+		} else {
+			cb(err);
 		}
-		cb(err);
 	});
 }
 
@@ -121,8 +128,6 @@ function lint() {
 }
 
 function electronBuild(platform, action, callback) {
-	pkg['main'] = pkg['electron-main'] || 'launch.js';
-	fs.writeFileSync('./dist/package.json', JSON.stringify(pkg, null, '\t'), {encoding:'utf8'});
 	console.log('Packaging with electron to ' + path.join(process.cwd(), 'bin') + '...');
 	var opts = {
 		arch: platform.arch,
