@@ -33,7 +33,7 @@
   "inlineCss": false,
   "outCssFile": "app.css",
   "outJsFile": "app.js",
-  "inlineJs": true,
+  "inlineJs": false,
   "templateIndex": "",
   "watch": false,
   "watchPaths": [],

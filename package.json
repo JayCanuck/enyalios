@@ -10,8 +10,7 @@
 		"launch.js",
 		"LICENSE",
 		"system/*.*",
-		"system/user/media/**/*.*",
-		"node_modules/fs-extra/**/*.*"
+		"system/user/media/**/*.*"
 	],
 	"moduleDir": "src",
 	"author": "Jason Robitaille",
