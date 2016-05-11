@@ -12,6 +12,9 @@
 		"system/*.*",
 		"system/user/media/**/*.*"
 	],
+	"styles": [
+		"src/EnyaliOS.css"
+	],
 	"moduleDir": "src",
 	"author": "Jason Robitaille",
 	"repository": "https://github.com/JayCanuck/enyalios",
