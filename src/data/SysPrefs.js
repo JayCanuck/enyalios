@@ -4,16 +4,18 @@ var
 	fs = window.require('fs-extra');
 
 var PREF_FILE = '@../../system/preferences.json';
-var PREF_KEYS = ['wallpaper'];
+var PREF_KEYS = ['wallpaper', 'uiScale'];
 
 module.exports = Component.kind({
 	name:'SysPrefs',
 	published: {
-		wallpaper:''
+		wallpaper:'system/wallpaper.jpg',
+		uiScale:1
 	},
 	events: {
 		onWallpaperUpdated:'',
-		onWallpaperFailure:''
+		onWallpaperFailure:'',
+		onUIScaleRequest:''
 	},
 	create: function() {
 		this.inherited(arguments);
@@ -28,8 +30,7 @@ module.exports = Component.kind({
 				}
 			}
 		} catch(e) {
-			this.log('Failed to load system preferences.');
-			console.error(e);
+			this.savePrefs();
 		}
 	},
 	savePrefs: function() {
@@ -59,5 +60,9 @@ module.exports = Component.kind({
 
 			}
 		}));
+	},
+	uiScaleChanged: function(from, to) {
+		this.savePrefs();
+		this.doUIScaleRequest({uiScale:this.uiScale});
 	}
 });
