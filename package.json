@@ -10,6 +10,8 @@
 		"launch.js",
 		"LICENSE",
 		"system/*.*",
+		"system/services/**/*.*",
+		"system/apps/com.enyalios.app.browser/*.*",
 		"system/user/media/**/*.*"
 	],
 	"styles": [
