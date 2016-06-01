@@ -10,6 +10,7 @@
 	width:90%;
 	max-width:45rem;
 	box-shadow: 0 0 0.05rem 0.01rem rgba(150,150,150,0.4);
+	z-index:5;
 }
 .search.active {
 	background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.15) 100%);
