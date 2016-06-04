@@ -7,6 +7,7 @@ module.exports = Control.kind({
 	events: {
 		onBack:'',
 		onCenter:'',
+		onUp:'',
 		onForward:''
 	},
 	handlers: {
@@ -47,7 +48,12 @@ module.exports = Control.kind({
 		}
 	},
 	swiped: function(inSender, inEvent) {
-		if(this.isOnCenter(inEvent.clientX) && this.isOnCenter(this.startX)) {
+		var b = this.getBounds();
+		if(b && inEvent.clientY<b.top) {
+			inEvent.preventTap();
+			this.doUp();
+			return true;
+		} else if(this.startX && this.isOnCenter(inEvent.clientX) && this.isOnCenter(this.startX)) {
 			inEvent.preventTap();
 			this.doCenter();
 			return true;
