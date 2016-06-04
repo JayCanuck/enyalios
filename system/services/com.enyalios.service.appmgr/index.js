@@ -81,7 +81,7 @@ var scanApps = function(callback) {
 				if(err) {
 					console.log('Unable to read appinfo: ' + curr);
 				} else {
-					ai.path = path.relative(ROOT, curr).replace(/\\/g, '/');
+					ai.path = path.dirname(path.relative(ROOT, curr)).replace(/\\/g, '/');
 					if(!oldApps[ai.id]) {
 						added.push(ai);
 					} else {
