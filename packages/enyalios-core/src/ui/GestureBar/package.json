@@ -1,0 +1,6 @@
+{
+	"main": "GestureBar.js",
+	"styles": [
+		"GestureBar.css"
+	]
+}

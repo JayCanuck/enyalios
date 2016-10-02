@@ -1,0 +1,30 @@
+.search {
+	background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.3) 100%);
+	height: 2rem;
+	border: 1px inset rgba(0,0,0,0.25);
+	border-radius: 2rem;
+	color:rgb(240,240,240);
+	text-shadow:  0 0 0.2rem black;
+	display: flex;
+	margin: 1rem auto 0.05rem auto;
+	width:90%;
+	max-width:45rem;
+	box-shadow: 0 0 0.05rem 0.01rem rgba(150,150,150,0.4);
+	z-index:5;
+}
+.search.active {
+	background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.15) 100%);
+	border: 1px outset rgba(0,0,0,0.25);
+}
+
+.search > * {
+	line-height:2rem;
+	margin: 0 1rem 0 1rem;
+}
+
+.search.active > * {
+	margin-top:1px;
+}
+
+.search .icon {
+}

@@ -3,33 +3,19 @@
   "version": "0.0.1",
   "build-cycle": "albatross",
   "description": "",
-  "main": "index.js",
-  "electron-main": "launch.js",
-  "assets": [
-    "assets/**/*.*",
-    "launch.js",
-    "LICENSE",
-    "system/*.*",
-    "system/services/**/*.*",
-    "system/apps/com.enyalios.app.browser/*.*",
-    "system/user/media/**/*.*"
-  ],
-  "styles": [
-    "src/EnyaliOS.css"
-  ],
-  "moduleDir": "src",
   "author": "Jason Robitaille",
   "repository": "https://github.com/JayCanuck/enyalios",
   "license": "Apache-2.0",
+  "scripts": {
+    "bootstrap":"lerna bootstrap",
+    "lerna": "lerna"
+  }
   "dependencies": {
     "fs-extra": "^0.30.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-jshint": "^2.0.1",
-    "jshint": "^2.9.3",
-    "jshint-stylish": "^2.2.1",
     "electron-packager": "^8.1.0",
     "electron-prebuilt": "1.4.2"
+    "lerna": "2.0.0-beta.30"
   }
 }

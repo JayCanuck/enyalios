@@ -1,0 +1,6 @@
+bin
+dist
+assets
+lib
+electron
+node_modules
