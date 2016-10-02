@@ -1,0 +1,6 @@
+{
+	"main": "AppWorkspace.js",
+	"styles": [
+		"AppWorkspace.css"
+	]
+}

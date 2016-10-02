@@ -1,0 +1,19 @@
+.app-workspace {
+	border-radius: 1.5rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.app-scroll-container {
+	height: 100%;
+	width: 100%;
+	white-space: nowrap;
+}
+
+.app-scroll-container-spacer {
+	font-size: 0;
+	width: 19%;
+	height: 100%;
+	display: inline-block;
+	position: relative;
+}
