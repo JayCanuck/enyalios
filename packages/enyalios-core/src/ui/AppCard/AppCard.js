@@ -2,15 +2,8 @@ require('enyo/touch');
 
 var
 	Control = require('enyo/Control'),
-	dispatcher = require('enyo/dispatcher'),
 	WebView = require('../WebView'),
-	Browser = require('../../browser/Browser'),
-	path = window.require('path');
-
-var
-	CARD_SCALE = 0.5,
-	FULL_SCALE = 1,
-	SCALE_TIME = 150;
+	Browser = require('../../browser/Browser');
 
 module.exports = Control.kind({
 	name:'AppCard',

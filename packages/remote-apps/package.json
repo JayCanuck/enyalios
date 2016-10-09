@@ -1,0 +1,16 @@
+{
+  "name": "enyalios-remote-apps",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "author": "Jason Robitaille",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fs-extra": "^0.30.0"
+  }
+}

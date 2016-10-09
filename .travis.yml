@@ -1,0 +1,15 @@
+language: node_js
+node_js: 
+    - "node"
+sudo: false
+install:
+    - npm install -g jshint
+    - npm install
+    - npm run bootstrap
+script:
+    - echo -e "\x1b\x5b35;1m*** Starting tests...\x1b\x5b0m"
+    - npm run lerna -- run test
+    - echo -e "\x1b\x5b35;1m*** Tests complete\x1b\x5b0m"
+    - echo -e "\x1b\x5b35;1m*** Starting eslint...\x1b\x5b0m"
+    - jshint .
+    - echo -e "\x1b\x5b35;1m*** jshint complete\x1b\x5b0m"

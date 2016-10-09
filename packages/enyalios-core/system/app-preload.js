@@ -12,15 +12,17 @@
 			res.request = pending.request;
 			if(res.errCode!==undefined || res.errText!==undefined || res.returnValue===false) {
 				delete res.key;
-				delete pendingRequests[res.key]
+				delete pendingRequests[res.key];
 				pending.reject(res);
 			} else {
 				if(pending.subscriber!==undefined && !res.completed && !res.returnValue) {
 					delete res.key;
-					pending.subscriber && pending.subscriber(res);
+					if(pending.subscriber) {
+						pending.subscriber(res);
+					}
 				} else {
 					delete res.key;
-					delete pendingRequests[res.key]
+					delete pendingRequests[res.key];
 					pending.resolve(res);
 				}
 			}
