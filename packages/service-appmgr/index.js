@@ -99,7 +99,9 @@ var scanApps = function(callback) {
 				removed.push(oldApps[i]);
 			}
 			if(added.length>0 || removed.length>0) {
-				callback && callback({added:added, modified:modified, removed:removed});
+				if(callback) {
+					callback({added:added, modified:modified, removed:removed});
+				}
 			}
 			writeCache();
 		}

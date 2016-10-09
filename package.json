@@ -3,19 +3,25 @@
   "version": "0.0.1",
   "build-cycle": "albatross",
   "description": "",
+  "private": true,
   "author": "Jason Robitaille",
   "repository": "https://github.com/JayCanuck/enyalios",
   "license": "Apache-2.0",
   "scripts": {
-    "bootstrap":"lerna bootstrap",
-    "lerna": "lerna"
-  }
-  "dependencies": {
-    "fs-extra": "^0.30.0"
+    "lerna": "lerna",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "build-p": "lerna -- build --production",
+    "stage": "node ./scripts/assemble.js --stage-only",
+    "run": "node ./scripts/assemble.js --run",
+    "pack": "node ./scripts/assemble.js",
+    "pack-all": "node ./scripts/assemble.js --all",
+    "clean": "node ./scripts/clean.js"
   },
   "devDependencies": {
     "electron-packager": "^8.1.0",
-    "electron-prebuilt": "1.4.2"
+    "electron-prebuilt": "^1.4.2",
+    "fs-extra": "^0.30.0",
     "lerna": "2.0.0-beta.30"
   }
 }

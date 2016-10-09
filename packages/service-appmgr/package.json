@@ -1,0 +1,16 @@
+{
+  "name": "com.enyalios.service.appmgr",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "echo \"No build needed\" && exit 0",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "author": "Jason Robitaille",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fs-extra": "^0.30.0"
+  }
+}

@@ -1,6 +1,5 @@
 var
-	path = require('path'),
-	fs = require('fs-extra');
+	path = require('path');
 
 var
 	TIMEOUT_MAX = 2147483647,

@@ -17,13 +17,6 @@ var preferences = {
 var watchers = {};
 
 // helper functions
-
-var counter = 0;
-var getID = function() {
-	counter++;
-	return 'request' + counter;
-}
-
 var mixin = function(items) {
 	var ret = {};
 	for(var i=0; i<items.length; i++) {

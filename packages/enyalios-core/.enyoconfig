@@ -1,6 +1,6 @@
 {
   "title": "EnyaliOS",
-  "libDir": "lib",
+  "libDir": "node_modules",
   "paths": [],
   "libraries": [
     "enyo"
@@ -9,7 +9,7 @@
     "enyo": "https://github.com/enyojs/enyo.git"
   },
   "targets": {
-    "enyo": "master"
+    "enyo": "2.7.0"
   },
   "production": false,
   "devMode": true,

@@ -1,5 +1,6 @@
 var
-	Control = require('enyo/Control');
+	Control = require('enyo/Control'),
+	path = window.require('path');
 
 var
 	DESKTOP_UA = navigator.userAgent.replace(/\)/, '; EnyaliOS)'),
@@ -48,7 +49,7 @@ module.exports = Control.kind({
 		return (this.mobile ? MOBILE_UA : DESKTOP_UA);
 	},
 	isRemote: function() {
-		return !(this.uri.indexOf('file://')===0);
+		return (this.uri.indexOf('file://')!==0);
 	},
 	rendered: function() {
 		this.inherited(arguments);
@@ -62,7 +63,7 @@ module.exports = Control.kind({
 			});
 			requestAnimationFrame(function() {
 				requestAnimationFrame(fn);
-			})
+			});
 			/*node.addEventListener('dom-ready', function(e) {
 				console.log('dom-ready');
 				node.getWebContents().enableDeviceEmulation({

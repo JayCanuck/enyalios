@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "electron-main": "launch.js",
+  "private": true,
   "assets": [
     "assets/**/*.*",
     "launch.js",
+    "package.json",
     "LICENSE",
     "system/*.*",
     "system/services/**/*.*",
@@ -20,7 +22,12 @@
   "author": "Jason Robitaille",
   "repository": "https://github.com/JayCanuck/enyalios",
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "enyo pack",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
   "dependencies": {
+    "enyo":"enyojs/enyo#2.7.0",
     "fs-extra": "^0.30.0"
   }
 }

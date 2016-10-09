@@ -14,7 +14,7 @@ module.exports = Control.kind({
 		{name:'appspace', kind: Scroller, vertical:'hidden', touch:true, thumb:false, touchOverscroll:true, classes:'card-scroller', strategyKind:TranslateScrollStrategy, components:[
 			{classes:'app-scroll-container', components:[
 				{classes:'app-scroll-container-spacer'},
-				{name:'app1', kind:AppCard, appid:'test-g', target:'http://192.168.235.1:8080/debug2.html', cardview:true, style:'z-index:1000'},
+				{name:'app1', kind:AppCard, appid:'test-g', target:'http://google.com', cardview:true, style:'z-index:1000'},
 				{name:'app2', kind:AppCard, appid:'test-g2', target:'http://m.youtube.com', cardview:true},
 				{name:'app3', kind:AppCard, appid:'test-g3', target:'http://io9.com', cardview:true},
 				{classes:'app-scroll-container-spacer'}
