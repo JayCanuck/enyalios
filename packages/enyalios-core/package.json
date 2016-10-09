@@ -24,6 +24,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "enyo pack",
+    "build-p": "enyo pack --production",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {

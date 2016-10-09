@@ -11,7 +11,7 @@
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "build-p": "lerna -- build --production",
+    "build-p": "lerna run build-p",
     "stage": "node ./scripts/assemble.js --stage-only",
     "run": "node ./scripts/assemble.js --run",
     "pack": "node ./scripts/assemble.js",
