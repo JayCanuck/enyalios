@@ -1,7 +1,5 @@
 .enyocache
 dist
-lib
-bin
+stage
 electron
 node_modules
-stage
